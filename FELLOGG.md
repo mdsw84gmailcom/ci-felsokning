@@ -10,8 +10,6 @@ En rad per fel. Skriv medan du minns hur du gjorde.
 | 4  | Ruff rapporterade att `tests/test_baseline.py` inte följer formateringsreglerna. | Lokalt |  Körde kommandot efter i workflow `uv run ruff format --check src tests` | Lät Ruff fixa det automatiskt med `uv run format tests/test_baseline.py` |
 | 5  | Pytest misslyckades pga `ModuleNotFoundError` för att numpy fanns inte med. | Lokalt | Körde kommandot efter i workflow `uv run pytest` | Kollade i `features.py` och såg att numpy importerades där sen gick jag in i `pyproject.toml` och såg att den inte fanns med så jag lade till numpy som dependency och uppdaterade uv.lock |
 | 6  | Pytest misslyckades, visade fel värden från moving_average | Lokalt | Körde kommandot efter i workflow uv run pytest  | Jag kollade i features.py på funktionen moving_average och såg att kernel delades med window +1 istället för window. Ändrade det till window så medelvärdet räknas korrekt. |
-| 7  |                    |                         |                             |                   |
-| 8  |                    |                         |                             |                   |
-| 9  |                    |                         |                             |                   |
+| 7  | Github actions kunde inte hitta uv.lock trots att den filen fanns lokalt | Github | Pushade åtgärdade felsökningarna och såg i Actions att det var rött | Kollade i .gitignore ser att uv.lock finns med och därför inte följde med till repot. Tog bort den från .gitignore och comittade lockfilen|
 
 Fortsätt tabellen med fler rader vid behov.
